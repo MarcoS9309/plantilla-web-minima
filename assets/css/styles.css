@@ -10,10 +10,10 @@
 /* Variables CSS para colores y espaciado */
 :root {
     /* Colores principales */
-    --color-primary: #2563eb;
+    --color-primary: #232e46;
     --color-primary-dark: #2e51b1;
-    --color-secondary: #64748b;
-    --color-accent: #7d6439;
+    --color-secondary: #84d671;
+    --color-accent: #458e41;
     
     /* Colores de texto */
     --color-text-primary: #1e293b;
