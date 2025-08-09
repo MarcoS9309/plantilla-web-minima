@@ -414,6 +414,126 @@ const ScrollAnimations = {
     }
 };
 
+// Quiz de Pensamiento Crítico
+const QuizCritico = {
+    respuestasCorrectas: {
+        q1: 'a', // Lenguaje sensacionalista
+        q2: 'b', // Verificar primero
+        q3: 'b', // Buscar contexto
+        source1: 'verificar', // Wikipedia necesita verificación
+        source2: 'no-confiable', // Blog sin referencias
+        source3: 'confiable' // Estudio revisado por pares
+    },
+
+    feedback: {
+        q1: {
+            a: "¡Correcto! El lenguaje exageradamente emocional y frases como 'los médicos lo odian' son señales claras de contenido no confiable.",
+            b: "Incorrecto. Este tipo de titulares sensacionalistas son típicos de contenido falso o engañoso.",
+            c: "Aunque pedir más información es bueno, ya hay señales claras de que este contenido no es confiable."
+        },
+        q2: {
+            a: "Incorrecto. Nunca compartas contenido sin verificar, especialmente si usa presión emocional.",
+            b: "¡Correcto! Siempre verifica la información antes de compartir. La frase 'antes de que lo censuren' es una táctica común de desinformación.",
+            c: "Ignorarlo es mejor que compartirlo, pero también puedes ayudar verificando y educando a otros."
+        },
+        q3: {
+            a: "Incorrecto. Las imágenes sin contexto pueden ser muy engañosas. Muchas veces son de eventos diferentes o editadas.",
+            b: "¡Correcto! Siempre busca el contexto original. Usa búsqueda inversa de imágenes si es necesario.",
+            c: "Incorrecto. Comentar sin verificar puede propagar información falsa y confundir a otros."
+        },
+        sources: {
+            source1: "Wikipedia puede ser un buen punto de partida si tiene referencias múltiples, pero siempre verifica las fuentes originales.",
+            source2: "Los blogs personales sin referencias no son fuentes confiables para información importante.",
+            source3: "Los estudios científicos revisados por pares son fuentes muy confiables, aunque siempre considera si están actualizados."
+        }
+    }
+};
+
+// Función global para evaluar el quiz
+function evaluarQuiz() {
+    const form = document.querySelector('.quiz-container');
+    const resultsDiv = document.getElementById('quiz-results');
+    const scoreDiv = document.getElementById('score');
+    const feedbackDiv = document.getElementById('feedback');
+    
+    let puntuacion = 0;
+    let totalPreguntas = 6;
+    let feedbackTexto = '';
+
+    // Evaluar preguntas de opción múltiple
+    ['q1', 'q2', 'q3'].forEach(pregunta => {
+        const respuestaSeleccionada = form.querySelector(`input[name="${pregunta}"]:checked`);
+        if (respuestaSeleccionada) {
+            const valor = respuestaSeleccionada.value;
+            if (valor === QuizCritico.respuestasCorrectas[pregunta]) {
+                puntuacion++;
+            }
+            feedbackTexto += `<div class="feedback-item">
+                <h4>Pregunta ${pregunta.slice(1)}:</h4>
+                <p>${QuizCritico.feedback[pregunta][valor]}</p>
+            </div>`;
+        }
+    });
+
+    // Evaluar evaluación de fuentes
+    ['source1', 'source2', 'source3'].forEach(fuente => {
+        const select = form.querySelector(`select[name="${fuente}"]`);
+        if (select && select.value) {
+            if (select.value === QuizCritico.respuestasCorrectas[fuente]) {
+                puntuacion++;
+            }
+            feedbackTexto += `<div class="feedback-item">
+                <h4>Evaluación ${fuente}:</h4>
+                <p>${QuizCritico.feedback.sources[fuente]}</p>
+            </div>`;
+        }
+    });
+
+    // Calcular porcentaje
+    const porcentaje = Math.round((puntuacion / totalPreguntas) * 100);
+    
+    // Mostrar resultados
+    let nivelTexto = '';
+    let colorClase = '';
+    
+    if (porcentaje >= 80) {
+        nivelTexto = 'Excelente pensamiento crítico';
+        colorClase = 'success';
+    } else if (porcentaje >= 60) {
+        nivelTexto = 'Buen nivel, sigue practicando';
+        colorClase = 'warning';
+    } else {
+        nivelTexto = 'Necesitas practicar más';
+        colorClase = 'danger';
+    }
+
+    scoreDiv.innerHTML = `
+        <div class="score-display ${colorClase}">
+            <h3>Tu puntuación: ${puntuacion}/${totalPreguntas} (${porcentaje}%)</h3>
+            <p><strong>${nivelTexto}</strong></p>
+        </div>
+    `;
+
+    feedbackDiv.innerHTML = `
+        <div class="feedback-content">
+            <h4>Explicaciones detalladas:</h4>
+            ${feedbackTexto}
+            <div class="feedback-item">
+                <h4>Recomendaciones para mejorar:</h4>
+                <ul>
+                    <li>Lee nuestras guías de verificación de información</li>
+                    <li>Practica identificando fuentes confiables diariamente</li>
+                    <li>Únete a nuestros talleres comunitarios</li>
+                    <li>Comparte estos conocimientos con tu familia</li>
+                </ul>
+            </div>
+        </div>
+    `;
+
+    resultsDiv.style.display = 'block';
+    resultsDiv.scrollIntoView({ behavior: 'smooth' });
+}
+
 // Inicialización de la aplicación
 const App = {
     init() {

@@ -145,6 +145,333 @@
             </div>
         </section>
 
+        <section id="verificacion-informacion" aria-labelledby="verificacion-titulo">
+            <div class="container">
+                <h2 id="verificacion-titulo">Diagrama de Flujo para Verificación de Información</h2>
+                <div class="verification-flow">
+                    <div class="flow-step">
+                        <div class="step-number">1</div>
+                        <h3>¿Reconoces la fuente?</h3>
+                        <p>Verifica si conoces el sitio web, medio o autor. Si es desconocido, investiga más.</p>
+                    </div>
+                    <div class="flow-arrow">↓</div>
+                    <div class="flow-step">
+                        <div class="step-number">2</div>
+                        <h3>¿Tiene fecha y autor?</h3>
+                        <p>Las noticias reales siempre incluyen fecha de publicación y nombre del autor o medio.</p>
+                    </div>
+                    <div class="flow-arrow">↓</div>
+                    <div class="flow-step">
+                        <div class="step-number">3</div>
+                        <h3>¿Usa lenguaje emocional extremo?</h3>
+                        <p>Desconfía de títulos con "URGENTE", "INCREÍBLE", "NO VAS A CREER" o lenguaje alarmista.</p>
+                    </div>
+                    <div class="flow-arrow">↓</div>
+                    <div class="flow-step">
+                        <div class="step-number">4</div>
+                        <h3>¿Otros medios reportan lo mismo?</h3>
+                        <p>Busca la misma noticia en 2-3 fuentes confiables diferentes antes de creer o compartir.</p>
+                    </div>
+                    <div class="flow-arrow">↓</div>
+                    <div class="flow-step verification-result">
+                        <div class="step-number">✓</div>
+                        <h3>Decisión Informada</h3>
+                        <p>Solo comparte si pasó todas las verificaciones. Cuando dudes, no compartas.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="quiz-pensamiento-critico" aria-labelledby="quiz-titulo">
+            <div class="container">
+                <h2 id="quiz-titulo">Quiz de Pensamiento Crítico</h2>
+                <div class="quiz-container">
+                    <div class="quiz-intro">
+                        <p>Pon a prueba tu capacidad para identificar información confiable. Este quiz te ayudará a desarrollar habilidades críticas para navegar en el mundo digital.</p>
+                    </div>
+                    
+                    <div class="quiz-section">
+                        <h3>Identificación de Noticias Falsas</h3>
+                        <div class="quiz-question">
+                            <p><strong>Pregunta 1:</strong> Un artículo dice "CIENTÍFICOS DESCUBREN CURA MILAGROSA - LOS MÉDICOS LO ODIAN". ¿Qué señales de alarma identificas?</p>
+                            <div class="quiz-options">
+                                <label><input type="radio" name="q1" value="a"> a) Lenguaje sensacionalista y sin fuente científica</label>
+                                <label><input type="radio" name="q1" value="b"> b) Es una noticia normal</label>
+                                <label><input type="radio" name="q1" value="c"> c) Necesito más información</label>
+                            </div>
+                        </div>
+
+                        <div class="quiz-question">
+                            <p><strong>Pregunta 2:</strong> Recibes un mensaje de WhatsApp que dice "Comparte esto antes de que lo censuren". ¿Cuál es la mejor acción?</p>
+                            <div class="quiz-options">
+                                <label><input type="radio" name="q2" value="a"> a) Compartirlo inmediatamente</label>
+                                <label><input type="radio" name="q2" value="b"> b) Verificar la información primero</label>
+                                <label><input type="radio" name="q2" value="c"> c) Ignorarlo completamente</label>
+                            </div>
+                        </div>
+
+                        <div class="quiz-question">
+                            <p><strong>Pregunta 3:</strong> Una imagen viral muestra algo impactante pero no tiene contexto. ¿Qué haces?</p>
+                            <div class="quiz-options">
+                                <label><input type="radio" name="q3" value="a"> a) La comparto porque es impactante</label>
+                                <label><input type="radio" name="q3" value="b"> b) Busco el contexto original y verifico</label>
+                                <label><input type="radio" name="q3" value="c"> c) La comento sin verificar</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="quiz-section">
+                        <h3>Evaluación de Fuentes</h3>
+                        <div class="source-evaluation">
+                            <p><strong>Ejercicio:</strong> Evalúa estas fuentes y clasifícalas como confiables o no confiables:</p>
+                            <div class="source-list">
+                                <div class="source-item">
+                                    <p>🔹 Un artículo de Wikipedia con múltiples referencias</p>
+                                    <select name="source1">
+                                        <option value="">Selecciona</option>
+                                        <option value="confiable">Confiable</option>
+                                        <option value="verificar">Necesita verificación</option>
+                                        <option value="no-confiable">No confiable</option>
+                                    </select>
+                                </div>
+                                <div class="source-item">
+                                    <p>🔹 Un blog personal sin referencias</p>
+                                    <select name="source2">
+                                        <option value="">Selecciona</option>
+                                        <option value="confiable">Confiable</option>
+                                        <option value="verificar">Necesita verificación</option>
+                                        <option value="no-confiable">No confiable</option>
+                                    </select>
+                                </div>
+                                <div class="source-item">
+                                    <p>🔹 Un estudio científico revisado por pares</p>
+                                    <select name="source3">
+                                        <option value="">Selecciona</option>
+                                        <option value="confiable">Confiable</option>
+                                        <option value="verificar">Necesita verificación</option>
+                                        <option value="no-confiable">No confiable</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button type="button" class="btn btn-primary quiz-submit" onclick="evaluarQuiz()">Evaluar Respuestas</button>
+                    <div id="quiz-results" class="quiz-results" style="display: none;">
+                        <h3>Resultados y Feedback</h3>
+                        <div id="score"></div>
+                        <div id="feedback"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="eventos-comunitarios" aria-labelledby="eventos-titulo">
+            <div class="container">
+                <h2 id="eventos-titulo">Eventos Comunitarios</h2>
+                <div class="events-grid">
+                    <div class="event-category">
+                        <h3>📚 Talleres de Alfabetización Digital</h3>
+                        <div class="event-list">
+                            <div class="event-item">
+                                <h4>Navegación Segura para Principiantes</h4>
+                                <p><strong>Cuándo:</strong> Primer sábado de cada mes, 10:00 AM</p>
+                                <p><strong>Para:</strong> Adultos mayores y principiantes</p>
+                                <p><strong>Duración:</strong> 2 horas</p>
+                                <p>Aprende a navegar de forma segura, identificar sitios confiables y proteger tu información personal.</p>
+                            </div>
+                            <div class="event-item">
+                                <h4>Uso Responsable de IA para Jóvenes</h4>
+                                <p><strong>Cuándo:</strong> Segundo miércoles de cada mes, 4:00 PM</p>
+                                <p><strong>Para:</strong> Adolescentes 13-18 años</p>
+                                <p><strong>Duración:</strong> 1.5 horas</p>
+                                <p>Prompts efectivos, verificación de información generada por IA y uso ético de herramientas.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="event-category">
+                        <h3>🤝 Encuentros Intergeneracionales</h3>
+                        <div class="event-list">
+                            <div class="event-item">
+                                <h4>Café Tecnológico Familiar</h4>
+                                <p><strong>Cuándo:</strong> Tercer domingo de cada mes, 3:00 PM</p>
+                                <p><strong>Para:</strong> Toda la familia</p>
+                                <p><strong>Duración:</strong> 2 horas</p>
+                                <p>Jóvenes enseñan tecnología a adultos mayores, mientras aprenden sabiduría tradicional.</p>
+                            </div>
+                            <div class="event-item">
+                                <h4>Proyecto Mentores Digitales</h4>
+                                <p><strong>Cuándo:</strong> Todos los viernes, 5:00 PM</p>
+                                <p><strong>Para:</strong> Parejas mentor-aprendiz</p>
+                                <p><strong>Duración:</strong> 1 hora</p>
+                                <p>Programa de acompañamiento personalizado para superar la brecha digital.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="event-category">
+                        <h3>💻 Webinars sobre IA Ética</h3>
+                        <div class="event-list">
+                            <div class="event-item">
+                                <h4>IA en la Medicina: Beneficios y Precauciones</h4>
+                                <p><strong>Cuándo:</strong> Último martes de cada mes, 7:00 PM</p>
+                                <p><strong>Para:</strong> Profesionales de salud y público general</p>
+                                <p><strong>Modalidad:</strong> Online (Zoom)</p>
+                                <p>Cómo la IA está transformando la medicina y qué precauciones tomar con aplicaciones de salud.</p>
+                            </div>
+                            <div class="event-item">
+                                <h4>Privacidad Digital en Tiempos de IA</h4>
+                                <p><strong>Cuándo:</strong> Segundo jueves de cada mes, 8:00 PM</p>
+                                <p><strong>Para:</strong> Padres de familia y educadores</p>
+                                <p><strong>Modalidad:</strong> Online (Zoom)</p>
+                                <p>Proteger la privacidad familiar en un mundo cada vez más digitalizado.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="events-contact">
+                    <p><strong>📍 Ubicación:</strong> Centro Comunitario de Jerusalén</p>
+                    <p><strong>📧 Información:</strong> eventos@innovacion-jerusalen.org</p>
+                    <p><strong>📱 WhatsApp Comunitario:</strong> Solo para coordinación de eventos (sin memes ni cadenas)</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="preguntas-frecuentes" aria-labelledby="faq-titulo">
+            <div class="container">
+                <h2 id="faq-titulo">Preguntas Frecuentes</h2>
+                <div class="faq-grid">
+                    <div class="faq-category">
+                        <h3>🔍 Identificación de Información Falsa</h3>
+                        <div class="faq-item">
+                            <h4>¿Cómo sé si una noticia es falsa?</h4>
+                            <div class="faq-answer">
+                                <p><strong>Señales de alarma:</strong></p>
+                                <ul>
+                                    <li>Títulos exageradamente emocionales o sensacionalistas</li>
+                                    <li>No menciona fuentes o autores específicos</li>
+                                    <li>Pide que compartas "antes de que lo censuren"</li>
+                                    <li>Usa palabras como "INCREÍBLE", "URGENTE", "EXCLUSIVO"</li>
+                                    <li>La URL es extraña o no reconocible</li>
+                                </ul>
+                                <p><strong>Qué hacer:</strong> Busca la misma información en 2-3 medios confiables diferentes.</p>
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <h4>¿Cómo evitar falsas noticias?</h4>
+                            <div class="faq-answer">
+                                <p><strong>Estrategias preventivas:</strong></p>
+                                <ul>
+                                    <li>Sigue solo fuentes de noticias reconocidas y verificadas</li>
+                                    <li>Lee más allá del titular antes de formar una opinión</li>
+                                    <li>Verifica las fechas (muchas noticias falsas reciclan eventos antiguos)</li>
+                                    <li>Usa sitios de verificación como Snopes o FactCheck.org</li>
+                                    <li>Pregúntate: "¿Esto confirma lo que ya pienso?" (cuidado con el sesgo de confirmación)</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="faq-category">
+                        <h3>🛡️ Seguridad Digital</h3>
+                        <div class="faq-item">
+                            <h4>¿Qué hacer si recibo un mensaje sospechoso?</h4>
+                            <div class="faq-answer">
+                                <p><strong>Pasos inmediatos:</strong></p>
+                                <ol>
+                                    <li><strong>No hagas clic</strong> en enlaces ni descargues archivos</li>
+                                    <li><strong>No compartas</strong> el mensaje con otros</li>
+                                    <li><strong>Verifica</strong> directamente con quien supuestamente lo envió</li>
+                                    <li><strong>Reporta</strong> el mensaje como spam o contenido malicioso</li>
+                                    <li><strong>Bloquea</strong> al remitente si no lo conoces</li>
+                                </ol>
+                                <p><strong>Señales de mensajes sospechosos:</strong> Errores ortográficos, urgencia extrema, solicitud de datos personales, premios inesperados.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="faq-category">
+                        <h3>👨‍👩‍👧‍👦 Educación Intergeneracional</h3>
+                        <div class="faq-item">
+                            <h4>¿Cómo enseñar tecnología a mis abuelos?</h4>
+                            <div class="faq-answer">
+                                <p><strong>Consejos efectivos:</strong></p>
+                                <ul>
+                                    <li><strong>Paciencia:</strong> Ve al ritmo de ellos, sin prisas</li>
+                                    <li><strong>Paso a paso:</strong> Enseña una función a la vez</li>
+                                    <li><strong>Práctica:</strong> Deja que ellos hagan, tú solo guía</li>
+                                    <li><strong>Repetición:</strong> Repite las lecciones sin molestarte</li>
+                                    <li><strong>Seguridad primero:</strong> Enfócate en navegación segura antes que en funciones avanzadas</li>
+                                    <li><strong>Escriban juntos:</strong> Haz una "chuleta" con pasos simples</li>
+                                </ul>
+                                <p><strong>Empieza con:</strong> Llamadas de video familiares, búsquedas básicas de Google, configuración de privacidad.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="faq-category">
+                        <h3>😄 Memes y Contenido Viral</h3>
+                        <div class="faq-item">
+                            <h4>Si hay memes, ¿cómo evitar su mal uso?</h4>
+                            <div class="faq-answer">
+                                <p><strong>Uso responsable de memes:</strong></p>
+                                <ul>
+                                    <li><strong>Verifica el contexto:</strong> ¿La imagen es real o editada?</li>
+                                    <li><strong>Considera el impacto:</strong> ¿Puede ofender o lastimar a alguien?</li>
+                                    <li><strong>No difundas rumores:</strong> Aunque sea "divertido", puede propagar información falsa</li>
+                                    <li><strong>Respeta la privacidad:</strong> No uses fotos de personas sin permiso</li>
+                                    <li><strong>Piensa antes de compartir:</strong> ¿Añade valor o solo ruido?</li>
+                                </ul>
+                                
+                                <p><strong>¿Por qué diseminar memes puede ser perjudicial?</strong></p>
+                                <ul>
+                                    <li><strong>Desinformación disfrazada:</strong> Los memes pueden propagar mentiras de forma "divertida"</li>
+                                    <li><strong>Normalización de la crueldad:</strong> Burlarse de otros se vuelve "normal"</li>
+                                    <li><strong>Adicción al contenido superficial:</strong> Reduce nuestra capacidad de concentración</li>
+                                    <li><strong>Polarización social:</strong> Los memes pueden crear divisiones artificiales</li>
+                                    <li><strong>Pérdida de empatía:</strong> Deshumaniza a las personas convirtiéndolas en chistes</li>
+                                </ul>
+                                
+                                <p><strong>Alternativas constructivas:</strong></p>
+                                <ul>
+                                    <li>Comparte contenido educativo divertido</li>
+                                    <li>Crea memes que unan en lugar de dividir</li>
+                                    <li>Usa el humor para enseñar, no para lastimar</li>
+                                    <li>Enfócate en actividades creativas originales</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="faq-category">
+                        <h3>💻 Contexto Informático Básico</h3>
+                        <div class="faq-item">
+                            <h4>Conceptos técnicos fundamentales (sin sesgos)</h4>
+                            <div class="faq-answer">
+                                <p><strong>Algoritmos:</strong> Son conjuntos de instrucciones que las computadoras siguen para procesar información. En redes sociales, determinan qué contenido ves primero.</p>
+                                
+                                <p><strong>Datos personales:</strong> Cualquier información que puede identificarte: nombre, ubicación, preferencias, historial de navegación. Las empresas los usan para personalizar anuncios.</p>
+                                
+                                <p><strong>Encriptación:</strong> Proceso que "codifica" tus mensajes para que solo el destinatario pueda leerlos. WhatsApp y Signal usan esto para proteger tus conversaciones.</p>
+                                
+                                <p><strong>Cookies:</strong> Pequeños archivos que los sitios web guardan en tu dispositivo para "recordar" tus preferencias. Pueden ser útiles (recordar tu idioma) o invasivos (rastrear tu actividad).</p>
+                                
+                                <p><strong>Inteligencia Artificial:</strong> Sistemas que pueden aprender y tomar decisiones similares a las humanas. Se usa en buscadores, asistentes virtuales y recomendaciones de contenido.</p>
+                                
+                                <p><strong>Nube (Cloud):</strong> Servidores en internet donde puedes guardar archivos y acceder a ellos desde cualquier dispositivo. Ejemplos: Google Drive, iCloud.</p>
+                                
+                                <p><strong>Malware:</strong> Software malicioso diseñado para dañar o robar información de tu dispositivo. Se puede propagar por correos, enlaces o descargas.</p>
+                                
+                                <p><strong>Phishing:</strong> Técnica de engaño donde criminales se hacen pasar por organizaciones legítimas para robarte información personal o financiera.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <section id="contacto" aria-labelledby="contacto-titulo">
             <div class="container">
                 <h2 id="contacto-titulo">Contacto</h2>
