@@ -83,7 +83,33 @@ En `assets/css/styles.css`, modifica las variables en `:root`:
 
 ## 🌐 Publicación en GitHub Pages
 
-### Método 1: Desde la Rama Main (Raíz)
+### Método Recomendado: Despliegue Automático con GitHub Actions
+
+Este repositorio incluye configuración automática para GitHub Pages. Una vez configurado, el sitio se desplegará automáticamente en cada push a la rama `main`.
+
+#### Configuración Inicial (Solo una vez)
+
+1. **Subir código** a tu repositorio de GitHub
+2. Ir a **Settings** > **Pages** en tu repositorio
+3. En **Source**, seleccionar **"GitHub Actions"**
+4. El sitio se desplegará automáticamente y estará disponible en: `https://tu-usuario.github.io/nombre-repositorio`
+
+#### Funcionamiento Automático
+
+- ✅ **Push automático**: Cada vez que hagas push a `main`, el sitio se actualiza
+- ✅ **Sin configuración adicional**: El workflow ya está configurado en `.github/workflows/deploy.yml`
+- ✅ **Despliegue rápido**: El sitio estará disponible en 1-2 minutos después del push
+- ✅ **Notificaciones**: GitHub te notificará del estado del despliegue
+
+#### Ver el Estado del Despliegue
+
+1. Ve a la pestaña **Actions** en tu repositorio
+2. Verás el historial de despliegues con estado verde ✅ o rojo ❌
+3. Haz clic en cualquier ejecución para ver los detalles
+
+### Método Alternativo: Despliegue Manual
+
+Si prefieres no usar GitHub Actions:
 
 1. **Subir código** a tu repositorio de GitHub
 2. Ir a **Settings** > **Pages** en tu repositorio
@@ -92,19 +118,25 @@ En `assets/css/styles.css`, modifica las variables en `:root`:
 5. Hacer clic en **Save**
 6. Tu sitio estará disponible en: `https://tu-usuario.github.io/nombre-repositorio`
 
-### Método 2: Desde la Carpeta /docs
+### Configuración Incluida
 
-1. **Crear carpeta docs** en la raíz del repositorio
-2. **Mover todos los archivos** del sitio a la carpeta `docs/`
-3. **Subir cambios** a GitHub
-4. En **Settings** > **Pages**, seleccionar **"main"** branch y **"/docs"** folder
-5. Tu sitio estará disponible en la misma URL
+- ✅ **Archivo `.nojekyll`** incluido para evitar procesamiento Jekyll
+- ✅ **Rutas relativas** para funcionar en cualquier subdominio
+- ✅ **Workflow de GitHub Actions** preconfigurado
+- ✅ **Sitio completamente estático** sin configuración adicional
 
-### Configuración Adicional
+### Solución de Problemas
 
-- El archivo `.nojekyll` está incluido para evitar procesamiento Jekyll
-- Las rutas son relativas para funcionar en cualquier subdominio
-- El sitio es completamente estático y no requiere configuración adicional
+**Si el despliegue falla:**
+1. Ve a **Actions** en tu repositorio
+2. Haz clic en la ejecución fallida para ver el error
+3. Verifica que el archivo `index.html` esté en la raíz del repositorio
+4. Asegúrate de que todas las rutas de archivos sean relativas (`./assets/...`)
+
+**Si GitHub Actions no aparece como opción:**
+1. Asegúrate de que tu repositorio sea público
+2. O que tengas GitHub Pro/Teams para repositorios privados
+3. Verifica que el archivo `.github/workflows/deploy.yml` esté presente
 
 ## 🎨 Personalización
 
