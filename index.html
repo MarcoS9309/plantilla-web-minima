@@ -1,18 +1,226 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="es">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title></title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="/src/main.css" rel="stylesheet" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Sitio web moderno y responsive construido con HTML5, CSS3 y JavaScript vanilla">
+    <title>Mi Sitio Web</title>
+    <link rel="stylesheet" href="./assets/css/styles.css">
 </head>
-
 <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-</body>
+    <header role="banner">
+        <nav role="navigation" aria-label="Navegación principal">
+            <div class="nav-container">
+                <div class="logo">
+                    <a href="#inicio" aria-label="Ir al inicio">Mi Sitio</a>
+                </div>
+                <button class="menu-toggle" aria-label="Abrir menú de navegación" aria-expanded="false">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <ul class="nav-menu" role="menubar">
+                    <li role="none"><a href="#inicio" role="menuitem">Inicio</a></li>
+                    <li role="none"><a href="#sobre-mi" role="menuitem">Sobre Mí</a></li>
+                    <li role="none"><a href="#servicios" role="menuitem">Servicios</a></li>
+                    <li role="none"><a href="#portafolio" role="menuitem">Portafolio</a></li>
+                    <li role="none"><a href="#contacto" role="menuitem">Contacto</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
 
+    <main role="main">
+        <section id="inicio" aria-labelledby="inicio-titulo">
+            <div class="container">
+                <div class="hero-content">
+                    <h1 id="inicio-titulo">Bienvenido a Mi Sitio Web</h1>
+                    <p class="hero-subtitle">Desarrollador web especializado en crear experiencias digitales modernas y accesibles</p>
+                    <div class="hero-buttons">
+                        <a href="#portafolio" class="btn btn-primary">Ver Mi Trabajo</a>
+                        <a href="#contacto" class="btn btn-secondary">Contactarme</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="sobre-mi" aria-labelledby="sobre-mi-titulo">
+            <div class="container">
+                <h2 id="sobre-mi-titulo">Sobre Mí</h2>
+                <div class="about-grid">
+                    <div class="about-text">
+                        <p>Soy un desarrollador web apasionado por crear sitios web modernos, accesibles y de alto rendimiento. Con experiencia en tecnologías front-end y back-end, me especializo en construir soluciones web que no solo se ven bien, sino que también funcionan perfectamente.</p>
+                        <p>Mi enfoque está en escribir código limpio, seguir las mejores prácticas de la industria y crear experiencias de usuario excepcionales que sean accesibles para todos.</p>
+                    </div>
+                    <div class="skills-grid">
+                        <div class="skill-item">
+                            <h3>Frontend</h3>
+                            <p>HTML5, CSS3, JavaScript, React, Vue.js</p>
+                        </div>
+                        <div class="skill-item">
+                            <h3>Backend</h3>
+                            <p>Node.js, Python, PHP, Bases de datos</p>
+                        </div>
+                        <div class="skill-item">
+                            <h3>Herramientas</h3>
+                            <p>Git, VS Code, Figma, WordPress</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="servicios" aria-labelledby="servicios-titulo">
+            <div class="container">
+                <h2 id="servicios-titulo">Mis Servicios</h2>
+                <div class="services-grid">
+                    <article class="service-card">
+                        <h3>Desarrollo Web</h3>
+                        <p>Creación de sitios web modernos y responsivos utilizando las últimas tecnologías y mejores prácticas.</p>
+                    </article>
+                    <article class="service-card">
+                        <h3>Diseño UI/UX</h3>
+                        <p>Diseño de interfaces intuitivas y experiencias de usuario que convierten visitantes en clientes.</p>
+                    </article>
+                    <article class="service-card">
+                        <h3>Optimización</h3>
+                        <p>Mejora del rendimiento, SEO y accesibilidad de sitios web existentes para mejores resultados.</p>
+                    </article>
+                    <article class="service-card">
+                        <h3>Mantenimiento</h3>
+                        <p>Soporte continuo, actualizaciones de seguridad y mejoras para mantener tu sitio web funcionando perfectamente.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section id="portafolio" aria-labelledby="portafolio-titulo">
+            <div class="container">
+                <h2 id="portafolio-titulo">Mi Portafolio</h2>
+                <div class="portfolio-grid">
+                    <article class="portfolio-item">
+                        <div class="portfolio-image">
+                            <img src="./assets/img/proyecto1.jpg" alt="Captura de pantalla del Proyecto E-commerce" loading="lazy">
+                        </div>
+                        <div class="portfolio-content">
+                            <h3>Tienda Online</h3>
+                            <p>Plataforma de e-commerce completa con carrito de compras, procesamiento de pagos y panel de administración.</p>
+                            <div class="portfolio-tech">
+                                <span class="tech-tag">React</span>
+                                <span class="tech-tag">Node.js</span>
+                                <span class="tech-tag">MongoDB</span>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="portfolio-item">
+                        <div class="portfolio-image">
+                            <img src="./assets/img/proyecto2.jpg" alt="Captura de pantalla del Proyecto Aplicación Web" loading="lazy">
+                        </div>
+                        <div class="portfolio-content">
+                            <h3>App de Gestión</h3>
+                            <p>Aplicación web para gestión de proyectos con funcionalidades de colaboración en tiempo real.</p>
+                            <div class="portfolio-tech">
+                                <span class="tech-tag">Vue.js</span>
+                                <span class="tech-tag">Express</span>
+                                <span class="tech-tag">Socket.io</span>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="portfolio-item">
+                        <div class="portfolio-image">
+                            <img src="./assets/img/proyecto3.jpg" alt="Captura de pantalla del Proyecto Sitio Corporativo" loading="lazy">
+                        </div>
+                        <div class="portfolio-content">
+                            <h3>Sitio Corporativo</h3>
+                            <p>Sitio web institucional con diseño moderno, optimizado para SEO y completamente responsive.</p>
+                            <div class="portfolio-tech">
+                                <span class="tech-tag">HTML5</span>
+                                <span class="tech-tag">CSS3</span>
+                                <span class="tech-tag">JavaScript</span>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section id="contacto" aria-labelledby="contacto-titulo">
+            <div class="container">
+                <h2 id="contacto-titulo">Contacto</h2>
+                <div class="contact-grid">
+                    <div class="contact-info">
+                        <h3>¡Hablemos!</h3>
+                        <p>¿Tienes un proyecto en mente? Me encantaría escuchar sobre tu idea y ayudarte a hacerla realidad.</p>
+                        <div class="contact-methods">
+                            <div class="contact-method">
+                                <strong>Email:</strong>
+                                <a href="mailto:hola@misitio.com">hola@misitio.com</a>
+                            </div>
+                            <div class="contact-method">
+                                <strong>Teléfono:</strong>
+                                <a href="tel:+34123456789">+34 123 456 789</a>
+                            </div>
+                            <div class="contact-method">
+                                <strong>Ubicación:</strong>
+                                <span>Madrid, España</span>
+                            </div>
+                        </div>
+                    </div>
+                    <form class="contact-form" action="#" method="post">
+                        <div class="form-group">
+                            <label for="nombre">Nombre completo</label>
+                            <input type="text" id="nombre" name="nombre" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="asunto">Asunto</label>
+                            <input type="text" id="asunto" name="asunto" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="mensaje">Mensaje</label>
+                            <textarea id="mensaje" name="mensaje" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Enviar Mensaje</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer role="contentinfo">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Mi Sitio Web</h3>
+                    <p>Creando experiencias web excepcionales con código limpio y diseño moderno.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Enlaces Rápidos</h3>
+                    <ul>
+                        <li><a href="#inicio">Inicio</a></li>
+                        <li><a href="#sobre-mi">Sobre Mí</a></li>
+                        <li><a href="#servicios">Servicios</a></li>
+                        <li><a href="#portafolio">Portafolio</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Redes Sociales</h3>
+                    <div class="social-links">
+                        <a href="#" aria-label="LinkedIn">LinkedIn</a>
+                        <a href="#" aria-label="GitHub">GitHub</a>
+                        <a href="#" aria-label="Twitter">Twitter</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Mi Sitio Web. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="./assets/js/main.js"></script>
+</body>
 </html>
