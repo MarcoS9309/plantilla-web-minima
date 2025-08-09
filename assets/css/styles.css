@@ -11,9 +11,9 @@
 :root {
     /* Colores principales */
     --color-primary: #2563eb;
-    --color-primary-dark: #1d4ed8;
+    --color-primary-dark: #2e51b1;
     --color-secondary: #64748b;
-    --color-accent: #f59e0b;
+    --color-accent: #7d6439;
     
     /* Colores de texto */
     --color-text-primary: #1e293b;
@@ -335,7 +335,7 @@ section:nth-child(even) {
 
 .btn-secondary:hover {
     background-color: var(--color-primary);
-    color: white;
+    color: rgb(220, 214, 214);
     transform: translateY(-2px);
     box-shadow: var(--shadow-md);
 }
