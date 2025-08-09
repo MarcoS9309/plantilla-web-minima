@@ -1,8 +1,8 @@
-# Mi Sitio Web
+# Mi Sitio Web en planificación
 
-Un sitio web moderno y responsive construido con HTML5, CSS3 y JavaScript vanilla. Sin frameworks, sin bundlers, sin backend - solo código web fundamental y optimizado.
+Un sitio web moderno y responsive construido con HTML5, CSS3 y JavaScript vanilla. Sin frameworks, sin bundlers, sin backend - solo código web fundamental y optimizado. La idea es implementar un diseño limpio y funcional que priorice la experiencia del usuario.
 
-## 🚀 Características
+## Características
 
 - **HTML5 Semántico**: Estructura clara con elementos semánticos apropiados
 - **CSS3 Moderno**: Variables CSS, Grid, Flexbox y efectos modernos
@@ -27,7 +27,7 @@ Un sitio web moderno y responsive construido con HTML5, CSS3 y JavaScript vanill
 └── .nojekyll              # Para GitHub Pages
 ```
 
-## 🛠️ Desarrollo Local
+## Desarrollo Local
 
 ### Requisitos Previos
 
@@ -75,13 +75,14 @@ En `assets/css/styles.css`, modifica las variables en `:root`:
     --color-accent: #f59e0b;         /* Color de acento */
 }
 ```
+Nota: Se realizan cambios recurrentes en las variables de color para mantener la coherencia visual.
 
 #### Agregar Imágenes
-1. Coloca las imágenes en `assets/img/`
+1. Coloca las imágenes en `assets/img/` (Tomar en cuenta el contexto e informar sobre su uso)
 2. Referencia con rutas relativas: `./assets/img/mi-imagen.jpg`
 3. Optimiza las imágenes para web (WebP, JPEG optimizado)
 
-## 🌐 Publicación en GitHub Pages
+## Publicación en GitHub Pages
 
 ### Método Recomendado: Despliegue Automático con GitHub Actions
 
@@ -138,7 +139,7 @@ Si prefieres no usar GitHub Actions:
 2. O que tengas GitHub Pro/Teams para repositorios privados
 3. Verifica que el archivo `.github/workflows/deploy.yml` esté presente
 
-## 🎨 Personalización
+## Personalización
 
 ### Cambiar Tipografía
 En `index.html`, agrega fuentes de Google Fonts:
@@ -165,7 +166,7 @@ En `assets/js/main.js`, busca el módulo `ScrollAnimations` para:
 - Modificar umbrales de activación
 - Agregar nuevos elementos animados
 
-## 📱 Responsive Design
+## Responsive Design
 
 El sitio utiliza un enfoque **mobile-first**:
 - Breakpoint principal: 768px (tablets y desktop)
@@ -217,4 +218,4 @@ Si tienes preguntas o problemas:
 
 ---
 
-**¡Listo para comenzar!** 🎉 Abre `index.html` en tu navegador y comienza a personalizar tu sitio web.
+**¡Listo para comenzar!** Abre `index.html` en tu navegador y comienza a personalizar tu sitio web.
