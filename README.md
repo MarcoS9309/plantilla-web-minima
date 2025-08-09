@@ -1,6 +1,10 @@
 # Recursos Imprescindibles en Innovación
 
-Una plataforma digital dedicada a compartir herramientas y conocimientos sobre el uso responsable de la tecnología e inteligencia artificial para la comunidad de Jerusalén. Este sitio tiene como objetivo brindar recursos confiables y consejos prácticos para navegar de manera segura en el mundo digital, evitando la desinformación y promoviendo el pensamiento crítico.
+**📚 Proyecto Educativo y Ejercicio de Programación**
+
+Esta es una propuesta conceptual y ejercicio de programación que demuestra cómo crear una plataforma digital educativa para compartir herramientas y conocimientos sobre el uso responsable de la tecnología e inteligencia artificial. Aunque hace referencia a la comunidad de Jerusalén como ejemplo, los conceptos y recursos son aplicables a cualquier comunidad interesada en educación digital responsable.
+
+**🎯 Objetivo del Proyecto:** Demostrar cómo desarrollar recursos digitales que promuevan el pensamiento crítico, la verificación de información y el uso ético de la tecnología.
 
 ## ¿Por qué este proyecto?
 
