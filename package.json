@@ -8,8 +8,13 @@
         "kill": "fuser -k 5000/tcp",
         "build": "tsc -b --noCheck && vite build",
         "lint": "eslint .",
+        "lint:fix": "eslint . --fix",
         "optimize": "vite optimize",
-        "preview": "vite preview"
+        "preview": "vite preview",
+        "test": "echo \"Abre tests/javascript-tests.html en el navegador para ejecutar las pruebas\"",
+        "quality": "./quality-control.sh",
+        "pages-check": "./check-pages.sh",
+        "validate": "npm run lint && ./quality-control.sh"
     },
     "dependencies": {
         "@github/spark": "^0.0.1",

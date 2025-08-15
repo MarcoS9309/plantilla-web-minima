@@ -53,7 +53,7 @@ const Utils = {
         if (element) {
             const headerHeight = this.$('header')?.offsetHeight || 0;
             const elementPosition = element.offsetTop - headerHeight - 20;
-            
+
             window.scrollTo({
                 top: elementPosition,
                 behavior: 'smooth'
@@ -68,7 +68,7 @@ const MobileMenu = {
         this.menuToggle = Utils.$('.menu-toggle');
         this.navMenu = Utils.$('.nav-menu');
         this.navLinks = Utils.$$('.nav-menu a');
-        
+
         if (this.menuToggle && this.navMenu) {
             this.bindEvents();
         }
@@ -77,32 +77,32 @@ const MobileMenu = {
     bindEvents() {
         // Toggle del menú
         this.menuToggle.addEventListener('click', () => this.toggle());
-        
+
         // Cerrar menú al hacer click en un enlace
         this.navLinks.forEach(link => {
             link.addEventListener('click', (e) => {
                 e.preventDefault();
                 const target = link.getAttribute('href');
                 this.close();
-                
+
                 // Pequeño delay para que se vea el cierre del menú
                 setTimeout(() => {
                     Utils.smoothScrollTo(target);
                 }, 300);
             });
         });
-        
+
         // Cerrar menú con ESC
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape' && AppState.isMobileMenuOpen) {
                 this.close();
             }
         });
-        
+
         // Cerrar menú al hacer click fuera
         document.addEventListener('click', (e) => {
-            if (AppState.isMobileMenuOpen && 
-                !this.navMenu.contains(e.target) && 
+            if (AppState.isMobileMenuOpen &&
+                !this.navMenu.contains(e.target) &&
                 !this.menuToggle.contains(e.target)) {
                 this.close();
             }
@@ -122,7 +122,7 @@ const MobileMenu = {
         this.menuToggle.classList.add('active');
         this.navMenu.classList.add('active');
         this.menuToggle.setAttribute('aria-expanded', 'true');
-        
+
         // Prevenir scroll del body
         document.body.style.overflow = 'hidden';
     },
@@ -132,7 +132,7 @@ const MobileMenu = {
         this.menuToggle.classList.remove('active');
         this.navMenu.classList.remove('active');
         this.menuToggle.setAttribute('aria-expanded', 'false');
-        
+
         // Restaurar scroll del body
         document.body.style.overflow = '';
     }
@@ -143,7 +143,7 @@ const Navigation = {
     init() {
         this.header = Utils.$('header');
         this.navLinks = Utils.$$('nav a[href^="#"]');
-        
+
         if (this.header) {
             this.bindEvents();
             this.handleScroll(); // Ejecutar una vez al inicio
@@ -157,7 +157,7 @@ const Navigation = {
                 e.preventDefault();
                 const target = link.getAttribute('href');
                 Utils.smoothScrollTo(target);
-                
+
                 // Cerrar menú móvil si está abierto
                 if (AppState.isMobileMenuOpen) {
                     MobileMenu.close();
@@ -173,7 +173,7 @@ const Navigation = {
 
     handleScroll() {
         const currentScrollY = window.scrollY;
-        
+
         // Auto-hide header en scroll hacia abajo
         if (currentScrollY > AppState.lastScrollY && currentScrollY > 100) {
             // Scrolling down
@@ -186,7 +186,7 @@ const Navigation = {
                 this.showHeader();
             }
         }
-        
+
         AppState.lastScrollY = currentScrollY;
     },
 
@@ -205,7 +205,7 @@ const Navigation = {
 const FormHandler = {
     init() {
         this.contactForm = Utils.$('.contact-form');
-        
+
         if (this.contactForm) {
             this.bindEvents();
         }
@@ -235,13 +235,14 @@ const FormHandler = {
 
         // Validaciones por tipo de campo
         switch (field.type) {
-            case 'email':
-                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-                if (value && !emailRegex.test(value)) {
-                    isValid = false;
-                    errorMessage = 'Por favor, ingresa un email válido';
-                }
-                break;
+        case 'email': {
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (value && !emailRegex.test(value)) {
+                isValid = false;
+                errorMessage = 'Por favor, ingresa un email válido';
+            }
+            break;
+        }
         }
 
         // Validar campos requeridos
@@ -274,7 +275,7 @@ const FormHandler = {
             errorElement.style.marginTop = 'var(--spacing-xs)';
             errorElement.style.display = 'block';
             errorElement.textContent = message;
-            
+
             formGroup.appendChild(errorElement);
             field.style.borderColor = 'var(--color-destructive)';
         }
@@ -304,16 +305,16 @@ const FormHandler = {
         });
 
         if (isFormValid) {
-            this.submitForm(formData);
+            this.submitForm();
         } else {
             this.showNotification('Por favor, corrige los errores en el formulario', 'error');
         }
     },
 
-    async submitForm(formData) {
+    async submitForm() {
         const submitButton = this.contactForm.querySelector('button[type="submit"]');
         const originalText = submitButton.textContent;
-        
+
         try {
             // Mostrar estado de carga
             submitButton.textContent = 'Enviando...';
@@ -394,7 +395,7 @@ const ScrollAnimations = {
     bindObserver() {
         // Observar elementos que queremos animar
         const animatedElements = Utils.$$('.service-card, .portfolio-item, .skill-item');
-        
+
         animatedElements.forEach(element => {
             element.style.opacity = '0';
             element.style.transform = 'translateY(30px)';
@@ -427,24 +428,24 @@ const QuizCritico = {
 
     feedback: {
         q1: {
-            a: "¡Correcto! El lenguaje exageradamente emocional y frases como 'los médicos lo odian' son señales claras de contenido no confiable.",
-            b: "Incorrecto. Este tipo de titulares sensacionalistas son típicos de contenido falso o engañoso.",
-            c: "Aunque pedir más información es bueno, ya hay señales claras de que este contenido no es confiable."
+            a: '¡Correcto! El lenguaje exageradamente emocional y frases como \'los médicos lo odian\' son señales claras de contenido no confiable.',
+            b: 'Incorrecto. Este tipo de titulares sensacionalistas son típicos de contenido falso o engañoso.',
+            c: 'Aunque pedir más información es bueno, ya hay señales claras de que este contenido no es confiable.'
         },
         q2: {
-            a: "Incorrecto. Nunca compartas contenido sin verificar, especialmente si usa presión emocional.",
-            b: "¡Correcto! Siempre verifica la información antes de compartir. La frase 'antes de que lo censuren' es una táctica común de desinformación.",
-            c: "Ignorarlo es mejor que compartirlo, pero también puedes ayudar verificando y educando a otros."
+            a: 'Incorrecto. Nunca compartas contenido sin verificar, especialmente si usa presión emocional.',
+            b: '¡Correcto! Siempre verifica la información antes de compartir. La frase \'antes de que lo censuren\' es una táctica común de desinformación.',
+            c: 'Ignorarlo es mejor que compartirlo, pero también puedes ayudar verificando y educando a otros.'
         },
         q3: {
-            a: "Incorrecto. Las imágenes sin contexto pueden ser muy engañosas. Muchas veces son de eventos diferentes o editadas.",
-            b: "¡Correcto! Siempre busca el contexto original. Usa búsqueda inversa de imágenes si es necesario.",
-            c: "Incorrecto. Comentar sin verificar puede propagar información falsa y confundir a otros."
+            a: 'Incorrecto. Las imágenes sin contexto pueden ser muy engañosas. Muchas veces son de eventos diferentes o editadas.',
+            b: '¡Correcto! Siempre busca el contexto original. Usa búsqueda inversa de imágenes si es necesario.',
+            c: 'Incorrecto. Comentar sin verificar puede propagar información falsa y confundir a otros.'
         },
         sources: {
-            source1: "Wikipedia puede ser un buen punto de partida si tiene referencias múltiples, pero siempre verifica las fuentes originales.",
-            source2: "Los blogs personales sin referencias no son fuentes confiables para información importante.",
-            source3: "Los estudios científicos revisados por pares son fuentes muy confiables, aunque siempre considera si están actualizados."
+            source1: 'Wikipedia puede ser un buen punto de partida si tiene referencias múltiples, pero siempre verifica las fuentes originales.',
+            source2: 'Los blogs personales sin referencias no son fuentes confiables para información importante.',
+            source3: 'Los estudios científicos revisados por pares son fuentes muy confiables, aunque siempre considera si están actualizados.'
         }
     }
 };
@@ -455,9 +456,9 @@ function evaluarQuiz() {
     const resultsDiv = document.getElementById('quiz-results');
     const scoreDiv = document.getElementById('score');
     const feedbackDiv = document.getElementById('feedback');
-    
+
     let puntuacion = 0;
-    let totalPreguntas = 6;
+    const totalPreguntas = 6;
     let feedbackTexto = '';
 
     // Evaluar preguntas de opción múltiple
@@ -491,11 +492,11 @@ function evaluarQuiz() {
 
     // Calcular porcentaje
     const porcentaje = Math.round((puntuacion / totalPreguntas) * 100);
-    
+
     // Mostrar resultados
     let nivelTexto = '';
     let colorClase = '';
-    
+
     if (porcentaje >= 80) {
         nivelTexto = 'Excelente pensamiento crítico';
         colorClase = 'success';
@@ -547,13 +548,13 @@ const App = {
 
     start() {
         console.log('Iniciando aplicación...');
-        
+
         try {
             // Inicializar módulos
             MobileMenu.init();
             Navigation.init();
             FormHandler.init();
-            
+
             // Inicializar animaciones solo si el usuario no prefiere movimiento reducido
             if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
                 ScrollAnimations.init();
