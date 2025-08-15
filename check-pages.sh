@@ -31,6 +31,23 @@ else
     exit 1
 fi
 
+# Ejecutar control de calidad completo si está disponible
+echo ""
+if [ -f "quality-control.sh" ]; then
+    echo "🚀 Ejecutando control de calidad completo..."
+    ./quality-control.sh
+    quality_exit_code=$?
+    if [ $quality_exit_code -eq 0 ]; then
+        echo ""
+        echo "🎉 ¡Configuración y calidad verificadas exitosamente!"
+    else
+        echo ""
+        echo "⚠️  Control de calidad completado con advertencias"
+    fi
+else
+    echo "ℹ️  Script de control de calidad no encontrado, continuando con verificación básica"
+fi
+
 echo ""
 echo "🚀 Configuración lista para GitHub Pages"
 echo "📝 Pasos siguientes:"
@@ -38,3 +55,7 @@ echo "   1. git add ."
 echo "   2. git commit -m 'Configurar GitHub Pages'"
 echo "   3. git push origin main"
 echo "   4. Ir a Settings > Pages > Source > GitHub Actions"
+echo ""
+echo "🧪 Para ejecutar pruebas adicionales:"
+echo "   - Abrir tests/javascript-tests.html en el navegador"
+echo "   - Ejecutar ./quality-control.sh para control de calidad completo"
