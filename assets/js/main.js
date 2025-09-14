@@ -293,7 +293,6 @@ const FormHandler = {
     },
 
     handleSubmit(form) {
-        const formData = new FormData(form);
         const inputs = form.querySelectorAll('input, textarea');
         let isFormValid = true;
 
@@ -305,13 +304,14 @@ const FormHandler = {
         });
 
         if (isFormValid) {
-            this.submitForm();
+            const formData = new FormData(form);
+            this.submitForm(formData);
         } else {
             this.showNotification('Por favor, corrige los errores en el formulario', 'error');
         }
     },
 
-    async submitForm() {
+    async submitForm(formData) {
         const submitButton = this.contactForm.querySelector('button[type="submit"]');
         const originalText = submitButton.textContent;
 
@@ -319,6 +319,9 @@ const FormHandler = {
             // Mostrar estado de carga
             submitButton.textContent = 'Enviando...';
             submitButton.disabled = true;
+
+            // Log form data for debugging (remove in production)
+            console.log('Form data being submitted:', Object.fromEntries(formData));
 
             // Simular envío (aquí irían las credenciales reales del backend)
             await new Promise(resolve => setTimeout(resolve, 1500));
@@ -450,7 +453,8 @@ const QuizCritico = {
     }
 };
 
-// Función global para evaluar el quiz
+// Función global para evaluar el quiz - usada en index.html
+// eslint-disable-next-line no-unused-vars
 function evaluarQuiz() {
     const form = document.querySelector('.quiz-container');
     const resultsDiv = document.getElementById('quiz-results');
