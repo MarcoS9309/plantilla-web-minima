@@ -315,6 +315,85 @@ if [ -f "assets/css/styles.css" ]; then
 fi
 
 echo
+echo "⚛️  9. VALIDACIÓN REACT/TYPESCRIPT"
+echo "=================================="
+
+# Check if TypeScript files exist and are valid
+if [ -d "src" ]; then
+    tsx_files=$(find src -name "*.tsx" -o -name "*.ts" | wc -l)
+    if [ "$tsx_files" -gt 0 ]; then
+        log_result "PASS" "Proyecto incluye archivos TypeScript/React ($tsx_files archivos)"
+        
+        # Check if App.tsx has meaningful content
+        if [ -f "src/App.tsx" ]; then
+            app_lines=$(grep -v "^\s*$\|^\s*//\|^\s*/\*\|^\s*\*" src/App.tsx | wc -l)
+            if [ "$app_lines" -gt 10 ]; then
+                log_result "PASS" "App.tsx tiene contenido sustancial ($app_lines líneas de código)"
+            else
+                log_result "WARN" "App.tsx parece tener contenido mínimo ($app_lines líneas de código)"
+            fi
+        fi
+        
+        # Check if build works
+        if npm run build >/dev/null 2>&1; then
+            log_result "PASS" "Build de React/TypeScript exitoso"
+        else
+            log_result "FAIL" "Build de React/TypeScript falla"
+        fi
+        
+        # Check if TypeScript config exists
+        if [ -f "tsconfig.json" ]; then
+            log_result "PASS" "Configuración de TypeScript presente"
+        else
+            log_result "WARN" "No se encontró tsconfig.json"
+        fi
+        
+    else
+        log_result "INFO" "No se encontraron archivos TypeScript/React"
+    fi
+else
+    log_result "INFO" "No existe directorio src/"
+fi
+
+# Check for proper component structure
+if [ -d "src/components" ]; then
+    component_count=$(find src/components -name "*.tsx" | wc -l)
+    if [ "$component_count" -gt 0 ]; then
+        log_result "PASS" "Estructura de componentes organizada ($component_count componentes)"
+    fi
+fi
+
+echo
+echo "🔧 10. VALIDACIÓN DE HERRAMIENTAS DE DESARROLLO"
+echo "=============================================="
+
+# Check if dev tools are properly configured
+if [ -f "package.json" ]; then
+    if grep -q '"dev":\|"build":\|"lint":' package.json; then
+        log_result "PASS" "Scripts de desarrollo configurados"
+    else
+        log_result "WARN" "Scripts de desarrollo pueden estar incompletos"
+    fi
+    
+    # Check for proper dependencies
+    if grep -q '"react":\|"typescript":' package.json; then
+        log_result "PASS" "Dependencias principales presentes"
+    fi
+fi
+
+# Check if Vite config exists and is valid
+if [ -f "vite.config.ts" ]; then
+    log_result "PASS" "Configuración de Vite presente"
+    
+    # Check if config has basic plugins
+    if grep -q "react()\|tailwindcss()" vite.config.ts; then
+        log_result "PASS" "Plugins esenciales configurados en Vite"
+    else
+        log_result "WARN" "Configuración de Vite puede estar incompleta"
+    fi
+fi
+
+echo
 echo "📊 RESUMEN DE RESULTADOS"
 echo "======================="
 echo -e "${GREEN}✅ Pruebas exitosas: $PASSED_CHECKS${NC}"
