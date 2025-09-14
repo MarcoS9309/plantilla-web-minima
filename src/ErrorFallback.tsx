@@ -1,39 +1,39 @@
-import { Alert, AlertTitle, AlertDescription } from "./components/ui/alert";
-import { Button } from "./components/ui/button";
+interface ErrorFallbackProps {
+  error: Error;
+  resetErrorBoundary: () => void;
+}
 
-import { AlertTriangleIcon, RefreshCwIcon } from "lucide-react";
-
-export const ErrorFallback = ({ error, resetErrorBoundary }) => {
+export const ErrorFallback = ({ error, resetErrorBoundary }: ErrorFallbackProps) => {
   // When encountering an error in the development mode, rethrow it and don't display the boundary.
   // The parent UI will take care of showing a more helpful dialog.
   if (import.meta.env.DEV) throw error;
 
   return (
-    <div className="min-h-screen bg-background flex items-center justify-center p-4">
-      <div className="w-full max-w-md">
-        <Alert variant="destructive" className="mb-6">
-          <AlertTriangleIcon />
-          <AlertTitle>This spark has encountered a runtime error</AlertTitle>
-          <AlertDescription>
-            Something unexpected happened while running the application. The error details are shown below. Contact the spark author and let them know about this issue.
-          </AlertDescription>
-        </Alert>
+    <div className="min-h-screen bg-gray-50 flex items-center justify-center p-4">
+      <div className="w-full max-w-md bg-white rounded-lg shadow-lg p-6">
+        <div className="text-center mb-6">
+          <div className="text-red-500 text-6xl mb-4">⚠️</div>
+          <h2 className="text-xl font-semibold text-gray-900 mb-2">
+            Error en la Aplicación
+          </h2>
+          <p className="text-gray-600">
+            Ha ocurrido un error inesperado. Por favor, intenta recargar la página.
+          </p>
+        </div>
         
-        <div className="bg-card border rounded-lg p-4 mb-6">
-          <h3 className="font-semibold text-sm text-muted-foreground mb-2">Error Details:</h3>
-          <pre className="text-xs text-destructive bg-muted/50 p-3 rounded border overflow-auto max-h-32">
+        <div className="bg-gray-100 border rounded-lg p-4 mb-6">
+          <h3 className="font-semibold text-sm text-gray-700 mb-2">Detalles del Error:</h3>
+          <pre className="text-xs text-red-600 bg-white p-3 rounded border overflow-auto max-h-32">
             {error.message}
           </pre>
         </div>
         
-        <Button 
+        <button 
           onClick={resetErrorBoundary} 
-          className="w-full"
-          variant="outline"
+          className="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-lg transition-colors"
         >
-          <RefreshCwIcon />
-          Try Again
-        </Button>
+          🔄 Intentar de Nuevo
+        </button>
       </div>
     </div>
   );
